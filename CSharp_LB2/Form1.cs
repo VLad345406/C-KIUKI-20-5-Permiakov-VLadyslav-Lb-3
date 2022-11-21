@@ -99,9 +99,14 @@ namespace CSharp_LB3
                     MessageBox.Show("Копіювання неможливе без даних", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
-                    arr.Add(new Ports(arr.ElementAt(comboBoxPorts.SelectedIndex)));
-                    comboBoxPorts.Items.Add(arr.ElementAt(arr.Count() - 1).Name);
-                    MessageBox.Show("Успішне копіювання!", "Sucess!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (checkPortsRepeat(arr.ElementAt(comboBoxPorts.SelectedIndex).Name + " (copy)"))
+                        MessageBox.Show("Копія цього порту вже існує!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        arr.Add(new Ports(arr.ElementAt(comboBoxPorts.SelectedIndex)));
+                        comboBoxPorts.Items.Add(arr.ElementAt(arr.Count() - 1).Name);
+                        MessageBox.Show("Успішне копіювання!", "Sucess!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             else
