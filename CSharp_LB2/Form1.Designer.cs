@@ -44,10 +44,10 @@ namespace CSharp_LB3
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radioButtonShow = new System.Windows.Forms.RadioButton();
             this.groupBoxMode = new System.Windows.Forms.GroupBox();
+            this.radioButtonCopy = new System.Windows.Forms.RadioButton();
             this.radioButtonHiringFiring = new System.Windows.Forms.RadioButton();
             this.radioButtonAddBerths = new System.Windows.Forms.RadioButton();
             this.buttonComparison = new System.Windows.Forms.Button();
-            this.radioButtonCopy = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxMode.SuspendLayout();
             this.SuspendLayout();
@@ -174,6 +174,17 @@ namespace CSharp_LB3
             this.groupBoxMode.TabStop = false;
             this.groupBoxMode.Text = "Режим роботи";
             // 
+            // radioButtonCopy
+            // 
+            this.radioButtonCopy.AutoSize = true;
+            this.radioButtonCopy.Location = new System.Drawing.Point(318, 19);
+            this.radioButtonCopy.Name = "radioButtonCopy";
+            this.radioButtonCopy.Size = new System.Drawing.Size(84, 17);
+            this.radioButtonCopy.TabIndex = 17;
+            this.radioButtonCopy.TabStop = true;
+            this.radioButtonCopy.Text = "Копіювання";
+            this.radioButtonCopy.UseVisualStyleBackColor = true;
+            // 
             // radioButtonHiringFiring
             // 
             this.radioButtonHiringFiring.AutoSize = true;
@@ -205,17 +216,6 @@ namespace CSharp_LB3
             this.buttonComparison.Text = "Порівняти порти";
             this.buttonComparison.UseVisualStyleBackColor = true;
             this.buttonComparison.Click += new System.EventHandler(this.buttonComparison_Click);
-            // 
-            // radioButtonCopy
-            // 
-            this.radioButtonCopy.AutoSize = true;
-            this.radioButtonCopy.Location = new System.Drawing.Point(318, 19);
-            this.radioButtonCopy.Name = "radioButtonCopy";
-            this.radioButtonCopy.Size = new System.Drawing.Size(84, 17);
-            this.radioButtonCopy.TabIndex = 17;
-            this.radioButtonCopy.TabStop = true;
-            this.radioButtonCopy.Text = "Копіювання";
-            this.radioButtonCopy.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

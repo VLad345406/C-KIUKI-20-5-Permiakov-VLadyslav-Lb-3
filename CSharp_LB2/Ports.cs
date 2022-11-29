@@ -66,4 +66,33 @@ namespace CSharp_LB3
             return obj.Name.GetHashCode();
         }
     }
+
+    class Worker
+    {
+        string individualNumber;
+        string surname, name, patronymic;
+        int salary;
+        int workerNumberBerths;
+    }
+
+    abstract class Item
+    {
+        int cost;
+        int countWorkers;
+    }
+
+    class Machine : Item
+    {
+        int uniqueNumber;
+        bool isWorking;
+    }
+
+    class Dock : Item
+    {
+        string accountNumber;
+        const int constNumberOfHours = 30;
+        List<int> countVehicles;
+        List<string> workersIndividualNumber;
+        int actualNumberOfHours;
+    }
 }
