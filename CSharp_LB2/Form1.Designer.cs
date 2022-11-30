@@ -46,7 +46,6 @@ namespace CSharp_LB3
             this.groupBoxMode = new System.Windows.Forms.GroupBox();
             this.radioButtonCopy = new System.Windows.Forms.RadioButton();
             this.radioButtonHiringFiring = new System.Windows.Forms.RadioButton();
-            this.radioButtonAddBerths = new System.Windows.Forms.RadioButton();
             this.buttonComparison = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxMode.SuspendLayout();
@@ -165,11 +164,10 @@ namespace CSharp_LB3
             // 
             this.groupBoxMode.Controls.Add(this.radioButtonCopy);
             this.groupBoxMode.Controls.Add(this.radioButtonHiringFiring);
-            this.groupBoxMode.Controls.Add(this.radioButtonAddBerths);
             this.groupBoxMode.Controls.Add(this.radioButtonShow);
-            this.groupBoxMode.Location = new System.Drawing.Point(519, 3);
+            this.groupBoxMode.Location = new System.Drawing.Point(560, 3);
             this.groupBoxMode.Name = "groupBoxMode";
-            this.groupBoxMode.Size = new System.Drawing.Size(422, 47);
+            this.groupBoxMode.Size = new System.Drawing.Size(327, 47);
             this.groupBoxMode.TabIndex = 14;
             this.groupBoxMode.TabStop = false;
             this.groupBoxMode.Text = "Режим роботи";
@@ -177,7 +175,7 @@ namespace CSharp_LB3
             // radioButtonCopy
             // 
             this.radioButtonCopy.AutoSize = true;
-            this.radioButtonCopy.Location = new System.Drawing.Point(318, 19);
+            this.radioButtonCopy.Location = new System.Drawing.Point(228, 19);
             this.radioButtonCopy.Name = "radioButtonCopy";
             this.radioButtonCopy.Size = new System.Drawing.Size(84, 17);
             this.radioButtonCopy.TabIndex = 17;
@@ -188,24 +186,13 @@ namespace CSharp_LB3
             // radioButtonHiringFiring
             // 
             this.radioButtonHiringFiring.AutoSize = true;
-            this.radioButtonHiringFiring.Location = new System.Drawing.Point(197, 19);
+            this.radioButtonHiringFiring.Location = new System.Drawing.Point(108, 19);
             this.radioButtonHiringFiring.Name = "radioButtonHiringFiring";
             this.radioButtonHiringFiring.Size = new System.Drawing.Size(114, 17);
             this.radioButtonHiringFiring.TabIndex = 16;
             this.radioButtonHiringFiring.TabStop = true;
             this.radioButtonHiringFiring.Text = "Найм/звільнення";
             this.radioButtonHiringFiring.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonAddBerths
-            // 
-            this.radioButtonAddBerths.AutoSize = true;
-            this.radioButtonAddBerths.Location = new System.Drawing.Point(108, 19);
-            this.radioButtonAddBerths.Name = "radioButtonAddBerths";
-            this.radioButtonAddBerths.Size = new System.Drawing.Size(82, 17);
-            this.radioButtonAddBerths.TabIndex = 15;
-            this.radioButtonAddBerths.TabStop = true;
-            this.radioButtonAddBerths.Text = "Додавання";
-            this.radioButtonAddBerths.UseVisualStyleBackColor = true;
             // 
             // buttonComparison
             // 
@@ -221,7 +208,7 @@ namespace CSharp_LB3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(994, 450);
+            this.ClientSize = new System.Drawing.Size(994, 371);
             this.Controls.Add(this.buttonComparison);
             this.Controls.Add(this.groupBoxMode);
             this.Controls.Add(this.dataGridView1);
@@ -264,7 +251,6 @@ namespace CSharp_LB3
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.RadioButton radioButtonShow;
         private System.Windows.Forms.GroupBox groupBoxMode;
-        private System.Windows.Forms.RadioButton radioButtonAddBerths;
         private System.Windows.Forms.Button buttonComparison;
         private System.Windows.Forms.RadioButton radioButtonHiringFiring;
         private System.Windows.Forms.RadioButton radioButtonCopy;

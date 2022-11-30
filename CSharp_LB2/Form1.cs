@@ -90,8 +90,6 @@ namespace CSharp_LB3
         {
             if (radioButtonShow.Checked)
                 addInfoToDataGridView(dataGridView1, comboBoxPorts.SelectedIndex);
-            else if (radioButtonAddBerths.Checked)
-                initializeFormAddBerths();
             else if (radioButtonHiringFiring.Checked)
                 initializeFormHiringFiring();
             else if (radioButtonCopy.Checked)
