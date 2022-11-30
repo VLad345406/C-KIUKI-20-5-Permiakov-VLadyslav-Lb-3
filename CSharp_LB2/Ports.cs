@@ -15,7 +15,8 @@ namespace CSharp_LB3
         public int CostVehicles;
         public int MaintenanceCost;
         public int ServiceTime;
-        public int NumberBerths;
+        public int CountBerths;
+        public int CountShips;
         public int SpentServiceTime;
         public int ServiceProfit;
 
@@ -29,7 +30,8 @@ namespace CSharp_LB3
             CostVehicles = 0;
             MaintenanceCost = 0;
             ServiceTime = 0;
-            NumberBerths = 0;
+            CountBerths = 0;
+            CountShips = 0;
             SpentServiceTime = 0;
             ServiceProfit = 0;
         }
@@ -44,9 +46,15 @@ namespace CSharp_LB3
             CostVehicles = port.CostVehicles;
             MaintenanceCost = port.MaintenanceCost;
             ServiceTime = port.ServiceTime;
-            NumberBerths = port.NumberBerths;
+            CountBerths = port.CountBerths;
+            CountShips = port.CountShips;
             SpentServiceTime = port.SpentServiceTime;
             ServiceProfit = port.ServiceProfit;
+        }
+
+        public int GetCountEmployees
+        {
+            get { return CountEmployees; }
         }
     }
 
@@ -75,7 +83,7 @@ namespace CSharp_LB3
         int workerNumberBerths;
     }
 
-    abstract class Item
+    abstract class Item : Ports
     {
         int cost;
         int countWorkers;
@@ -85,14 +93,24 @@ namespace CSharp_LB3
     {
         int uniqueNumber;
         bool isWorking;
+
+        public int GetMachineCount
+        {
+            get { return CountVehicles; }
+        }
     }
 
     class Dock : Item
     {
-        string accountNumber;
+        string accountNumberDock;
         const int constNumberOfHours = 30;
         List<int> countVehicles;
         List<string> workersIndividualNumber;
         int actualNumberOfHours;
+
+        public int GetDockCountBerth
+        {
+            get { return CountBerths; }
+        }
     }
 }

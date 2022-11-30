@@ -77,18 +77,18 @@ namespace CSharp_LB3
 
         private void comboBoxPort1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            labelPort1NumberBerths.Text = "Кількість причалів в цьому порту: " + arr.ElementAt(comboBoxPort1.SelectedIndex).NumberBerths;
+            labelPort1NumberBerths.Text = "Кількість причалів в цьому порту: " + arr.ElementAt(comboBoxPort1.SelectedIndex).CountBerths;
         }
         private void comboBoxPort2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            labelPort2NumberBerths.Text = "Кількість причалів в цьому порту: " + arr.ElementAt(comboBoxPort2.SelectedIndex).NumberBerths;
+            labelPort2NumberBerths.Text = "Кількість причалів в цьому порту: " + arr.ElementAt(comboBoxPort2.SelectedIndex).CountBerths;
             if (comboBoxPort1.SelectedIndex == -1)
                 MessageBox.Show("Оберіть порт з першого списку!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                if (arr.ElementAt(comboBoxPort1.SelectedIndex).NumberBerths > arr.ElementAt(comboBoxPort2.SelectedIndex).NumberBerths)
+                if (arr.ElementAt(comboBoxPort1.SelectedIndex).CountBerths > arr.ElementAt(comboBoxPort2.SelectedIndex).CountBerths)
                     labelComparison.Text = ">";
-                else if (arr.ElementAt(comboBoxPort1.SelectedIndex).NumberBerths < arr.ElementAt(comboBoxPort2.SelectedIndex).NumberBerths)
+                else if (arr.ElementAt(comboBoxPort1.SelectedIndex).CountBerths < arr.ElementAt(comboBoxPort2.SelectedIndex).CountBerths)
                     labelComparison.Text = "<";
                 else
                     labelComparison.Text = "=";

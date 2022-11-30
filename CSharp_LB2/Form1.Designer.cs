@@ -47,6 +47,7 @@ namespace CSharp_LB3
             this.radioButtonCopy = new System.Windows.Forms.RadioButton();
             this.radioButtonHiringFiring = new System.Windows.Forms.RadioButton();
             this.buttonComparison = new System.Windows.Forms.Button();
+            this.textBoxCountShips = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxMode.SuspendLayout();
             this.SuspendLayout();
@@ -109,7 +110,7 @@ namespace CSharp_LB3
             // 
             // buttonAddPort
             // 
-            this.buttonAddPort.Location = new System.Drawing.Point(196, 269);
+            this.buttonAddPort.Location = new System.Drawing.Point(198, 295);
             this.buttonAddPort.Name = "buttonAddPort";
             this.buttonAddPort.Size = new System.Drawing.Size(75, 45);
             this.buttonAddPort.TabIndex = 9;
@@ -196,7 +197,7 @@ namespace CSharp_LB3
             // 
             // buttonComparison
             // 
-            this.buttonComparison.Location = new System.Drawing.Point(277, 269);
+            this.buttonComparison.Location = new System.Drawing.Point(279, 295);
             this.buttonComparison.Name = "buttonComparison";
             this.buttonComparison.Size = new System.Drawing.Size(75, 45);
             this.buttonComparison.TabIndex = 15;
@@ -204,11 +205,19 @@ namespace CSharp_LB3
             this.buttonComparison.UseVisualStyleBackColor = true;
             this.buttonComparison.Click += new System.EventHandler(this.buttonComparison_Click);
             // 
+            // textBoxCountShips
+            // 
+            this.textBoxCountShips.Location = new System.Drawing.Point(102, 269);
+            this.textBoxCountShips.Name = "textBoxCountShips";
+            this.textBoxCountShips.Size = new System.Drawing.Size(371, 20);
+            this.textBoxCountShips.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 371);
+            this.Controls.Add(this.textBoxCountShips);
             this.Controls.Add(this.buttonComparison);
             this.Controls.Add(this.groupBoxMode);
             this.Controls.Add(this.dataGridView1);
@@ -225,7 +234,6 @@ namespace CSharp_LB3
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Морський порт";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxMode.ResumeLayout(false);
             this.groupBoxMode.PerformLayout();
@@ -254,6 +262,7 @@ namespace CSharp_LB3
         private System.Windows.Forms.Button buttonComparison;
         private System.Windows.Forms.RadioButton radioButtonHiringFiring;
         private System.Windows.Forms.RadioButton radioButtonCopy;
+        private System.Windows.Forms.TextBox textBoxCountShips;
     }
 }
 

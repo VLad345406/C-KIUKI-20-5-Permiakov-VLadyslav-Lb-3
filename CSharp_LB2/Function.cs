@@ -43,7 +43,8 @@ namespace CSharp_LB3
             dataGridView.Rows.Add("Вартість однієї одиниці техніки", arr.ElementAt(index).CostVehicles + " $");
             dataGridView.Rows.Add("Вартість обслуговування одного корабля", arr.ElementAt(index).MaintenanceCost + " $");
             dataGridView.Rows.Add("Час обслуговування одного корабля", arr.ElementAt(index).ServiceTime + " год.");
-            dataGridView.Rows.Add("Кількість причалів", arr.ElementAt(index).NumberBerths);
+            dataGridView.Rows.Add("Кількість причалів", arr.ElementAt(index).CountBerths);
+            dataGridView.Rows.Add("Кількість кораблів, що обслуговуються", arr.ElementAt(index).CountShips);
 
             dataGridView.Rows.Add();
             dataGridView.Rows.Add("Розраховані дані");
@@ -64,6 +65,7 @@ namespace CSharp_LB3
             textBoxMaintenanceCost.AddPlaceholder("Вартість обслуговування одного корабля");
             textBoxServiceTime.AddPlaceholder("Час обслуговування одного корабля");
             textBoxNumberBerths.AddPlaceholder("Кількість причалів (на 1 причал - 5 одиниць техніки та 15 робочих");
+            textBoxCountShips.AddPlaceholder("Кількість кораблів, що обслуговуються портом");
         }
 
         //перевірка на повторюваність портів
