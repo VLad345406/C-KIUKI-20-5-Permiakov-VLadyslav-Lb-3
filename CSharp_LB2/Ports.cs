@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
     
 namespace CSharp_LB3
 {
@@ -71,12 +72,22 @@ namespace CSharp_LB3
         }
     }
 
-    class Worker
+    class Worker : IEnumerable
     {
         string individualNumber;
         string surname, name, patronymic;
         int salary;
         int workerNumberBerths;
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
+        }
+
+        public WorkerEnum GetEnumerator()
+        {
+            return new WorkerEnum(individualNumber);
+        }
     }
 
     abstract class Item : Ports
@@ -98,11 +109,11 @@ namespace CSharp_LB3
 
     class Dock : Item
     {
-        string accountNumberDock;
-        const int constNumberOfHours = 30;
-        List<int> countVehicles;
-        List<string> workersIndividualNumber;
-        int actualNumberOfHours;
+        public string accountNumberDock;
+        public const int constNumberOfHours = 30;
+        public List<int> numbersVehicles;
+        public List<string> workersIndividualNumber;
+        public int actualNumberOfHours;
 
         public int GetDockCountBerth
         {

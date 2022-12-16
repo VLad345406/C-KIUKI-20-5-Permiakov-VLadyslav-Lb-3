@@ -81,6 +81,33 @@ namespace CSharp_LB3
                 temp.CountShips = countShips;
                 temp.SpentServiceTime = calcTime(numberVehicles, countEmployees, serviceTime);
                 temp.ServiceProfit = calcProfit(numberVehicles, maintenanceCost);
+
+                Dock tempDock = new Dock();
+                List<Dock> tempListDock = new List<Dock>();
+                
+                
+                int tempVehicles = numberVehicles, tempEmployees = countEmployees;
+                int iBerths = 0, iEmployees = 0, iVehicles = 0;
+                while (tempVehicles >= 5)
+                {
+                    tempDock.accountNumberDock = iBerths + 1.ToString();
+                    int iWhile = 0;
+                    while (iWhile < 5 || iWhile < tempVehicles)
+                    {
+                        tempDock.numbersVehicles.Add(iVehicles + 1);
+                        iVehicles++;
+                        iWhile++;
+                    }
+
+                    iWhile = 0;
+                    while (tempEmployees >= 15 || iWhile < 15)
+                    {
+                        tempDock.workersIndividualNumber.Add((iEmployees + 1).ToString());
+                        iWhile++;
+                        iEmployees++;
+                    }
+                }
+
                 arr.Add(temp);
                 comboBoxPorts.Items.Add(textBoxName.Text);
                 clearForm();
