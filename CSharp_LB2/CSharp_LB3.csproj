@@ -56,7 +56,10 @@
     <Compile Include="FormComparison.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHiringFiring.cs">
+    <Compile Include="FormFiring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHiring.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Function.cs">

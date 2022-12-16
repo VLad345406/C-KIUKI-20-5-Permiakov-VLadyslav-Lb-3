@@ -45,8 +45,9 @@ namespace CSharp_LB3
             this.radioButtonShow = new System.Windows.Forms.RadioButton();
             this.groupBoxMode = new System.Windows.Forms.GroupBox();
             this.radioButtonCopy = new System.Windows.Forms.RadioButton();
-            this.radioButtonHiringFiring = new System.Windows.Forms.RadioButton();
+            this.radioButtonHiring = new System.Windows.Forms.RadioButton();
             this.buttonComparison = new System.Windows.Forms.Button();
+            this.radioButtonFiring = new System.Windows.Forms.RadioButton();
             this.textBoxCountShips = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxMode.SuspendLayout();
@@ -113,7 +114,7 @@ namespace CSharp_LB3
             this.buttonAddPort.Location = new System.Drawing.Point(198, 295);
             this.buttonAddPort.Name = "buttonAddPort";
             this.buttonAddPort.Size = new System.Drawing.Size(75, 45);
-            this.buttonAddPort.TabIndex = 9;
+            this.buttonAddPort.TabIndex = 10;
             this.buttonAddPort.Text = "Додати";
             this.buttonAddPort.UseVisualStyleBackColor = true;
             this.buttonAddPort.Click += new System.EventHandler(this.buttonAddPort_Click);
@@ -124,7 +125,7 @@ namespace CSharp_LB3
             this.comboBoxPorts.Location = new System.Drawing.Point(541, 56);
             this.comboBoxPorts.Name = "comboBoxPorts";
             this.comboBoxPorts.Size = new System.Drawing.Size(365, 21);
-            this.comboBoxPorts.TabIndex = 10;
+            this.comboBoxPorts.TabIndex = 16;
             this.comboBoxPorts.SelectedIndexChanged += new System.EventHandler(this.comboBoxPorts_SelectedIndexChanged);
             // 
             // dataGridView1
@@ -136,7 +137,7 @@ namespace CSharp_LB3
             this.dataGridView1.Location = new System.Drawing.Point(541, 83);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(365, 231);
-            this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.TabIndex = 17;
             // 
             // Column1
             // 
@@ -156,19 +157,20 @@ namespace CSharp_LB3
             this.radioButtonShow.Location = new System.Drawing.Point(6, 19);
             this.radioButtonShow.Name = "radioButtonShow";
             this.radioButtonShow.Size = new System.Drawing.Size(96, 17);
-            this.radioButtonShow.TabIndex = 13;
+            this.radioButtonShow.TabIndex = 12;
             this.radioButtonShow.TabStop = true;
             this.radioButtonShow.Text = "Відображення";
             this.radioButtonShow.UseVisualStyleBackColor = true;
             // 
             // groupBoxMode
             // 
+            this.groupBoxMode.Controls.Add(this.radioButtonFiring);
             this.groupBoxMode.Controls.Add(this.radioButtonCopy);
-            this.groupBoxMode.Controls.Add(this.radioButtonHiringFiring);
+            this.groupBoxMode.Controls.Add(this.radioButtonHiring);
             this.groupBoxMode.Controls.Add(this.radioButtonShow);
-            this.groupBoxMode.Location = new System.Drawing.Point(560, 3);
+            this.groupBoxMode.Location = new System.Drawing.Point(550, 3);
             this.groupBoxMode.Name = "groupBoxMode";
-            this.groupBoxMode.Size = new System.Drawing.Size(327, 47);
+            this.groupBoxMode.Size = new System.Drawing.Size(346, 47);
             this.groupBoxMode.TabIndex = 14;
             this.groupBoxMode.TabStop = false;
             this.groupBoxMode.Text = "Режим роботи";
@@ -176,41 +178,52 @@ namespace CSharp_LB3
             // radioButtonCopy
             // 
             this.radioButtonCopy.AutoSize = true;
-            this.radioButtonCopy.Location = new System.Drawing.Point(228, 19);
+            this.radioButtonCopy.Location = new System.Drawing.Point(108, 19);
             this.radioButtonCopy.Name = "radioButtonCopy";
             this.radioButtonCopy.Size = new System.Drawing.Size(84, 17);
-            this.radioButtonCopy.TabIndex = 17;
+            this.radioButtonCopy.TabIndex = 13;
             this.radioButtonCopy.TabStop = true;
             this.radioButtonCopy.Text = "Копіювання";
             this.radioButtonCopy.UseVisualStyleBackColor = true;
             // 
-            // radioButtonHiringFiring
+            // radioButtonHiring
             // 
-            this.radioButtonHiringFiring.AutoSize = true;
-            this.radioButtonHiringFiring.Location = new System.Drawing.Point(108, 19);
-            this.radioButtonHiringFiring.Name = "radioButtonHiringFiring";
-            this.radioButtonHiringFiring.Size = new System.Drawing.Size(114, 17);
-            this.radioButtonHiringFiring.TabIndex = 16;
-            this.radioButtonHiringFiring.TabStop = true;
-            this.radioButtonHiringFiring.Text = "Найм/звільнення";
-            this.radioButtonHiringFiring.UseVisualStyleBackColor = true;
+            this.radioButtonHiring.AutoSize = true;
+            this.radioButtonHiring.Location = new System.Drawing.Point(198, 19);
+            this.radioButtonHiring.Name = "radioButtonHiring";
+            this.radioButtonHiring.Size = new System.Drawing.Size(53, 17);
+            this.radioButtonHiring.TabIndex = 14;
+            this.radioButtonHiring.TabStop = true;
+            this.radioButtonHiring.Text = "Найм";
+            this.radioButtonHiring.UseVisualStyleBackColor = true;
             // 
             // buttonComparison
             // 
             this.buttonComparison.Location = new System.Drawing.Point(279, 295);
             this.buttonComparison.Name = "buttonComparison";
             this.buttonComparison.Size = new System.Drawing.Size(75, 45);
-            this.buttonComparison.TabIndex = 15;
+            this.buttonComparison.TabIndex = 11;
             this.buttonComparison.Text = "Порівняти порти";
             this.buttonComparison.UseVisualStyleBackColor = true;
             this.buttonComparison.Click += new System.EventHandler(this.buttonComparison_Click);
+            // 
+            // radioButtonFiring
+            // 
+            this.radioButtonFiring.AutoSize = true;
+            this.radioButtonFiring.Location = new System.Drawing.Point(257, 19);
+            this.radioButtonFiring.Name = "radioButtonFiring";
+            this.radioButtonFiring.Size = new System.Drawing.Size(82, 17);
+            this.radioButtonFiring.TabIndex = 15;
+            this.radioButtonFiring.TabStop = true;
+            this.radioButtonFiring.Text = "Звільнення";
+            this.radioButtonFiring.UseVisualStyleBackColor = true;
             // 
             // textBoxCountShips
             // 
             this.textBoxCountShips.Location = new System.Drawing.Point(102, 269);
             this.textBoxCountShips.Name = "textBoxCountShips";
             this.textBoxCountShips.Size = new System.Drawing.Size(371, 20);
-            this.textBoxCountShips.TabIndex = 16;
+            this.textBoxCountShips.TabIndex = 9;
             // 
             // Form1
             // 
@@ -234,6 +247,7 @@ namespace CSharp_LB3
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Морський порт";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxMode.ResumeLayout(false);
             this.groupBoxMode.PerformLayout();
@@ -260,8 +274,9 @@ namespace CSharp_LB3
         private System.Windows.Forms.RadioButton radioButtonShow;
         private System.Windows.Forms.GroupBox groupBoxMode;
         private System.Windows.Forms.Button buttonComparison;
-        private System.Windows.Forms.RadioButton radioButtonHiringFiring;
         private System.Windows.Forms.RadioButton radioButtonCopy;
+        private System.Windows.Forms.RadioButton radioButtonFiring;
+        private System.Windows.Forms.RadioButton radioButtonHiring;
         private System.Windows.Forms.TextBox textBoxCountShips;
     }
 }

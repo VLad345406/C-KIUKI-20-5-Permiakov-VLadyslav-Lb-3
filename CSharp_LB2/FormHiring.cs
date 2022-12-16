@@ -7,13 +7,13 @@ namespace CSharp_LB3
 {
     public partial class Form1
     {
-        TextBox hiringFiringTextBox;
-        Form formHiringFiring;
+        TextBox hiringTextBox;
+        Form formHiring;
 
         //ініціалізація форми найму/звільнення працівників
-        public void initializeFormHiringFiring()
+        public void initializeFormHiring()
         {
-            formHiringFiring = new Form()
+            formHiring = new Form()
             {
                 Width = 550,
                 Height = 150,
@@ -21,9 +21,9 @@ namespace CSharp_LB3
                 MaximizeBox = false,
                 MinimizeBox = false,
                 FormBorderStyle = FormBorderStyle.FixedSingle,
-                Text = "Додати причали"
+                Text = "Найм працівників"
             };
-            formHiringFiring.Show();
+            formHiring.Show();
 
             Label addLabelInfo = new Label()
             {
@@ -32,13 +32,13 @@ namespace CSharp_LB3
                 Text = "Зараз в цьому порту " + arr.ElementAt(comboBoxPorts.SelectedIndex).CountEmployees + " співробітників." +
                 " Для звільнення в полі перед числом допишіть знак -"
             };
-            formHiringFiring.Controls.Add(addLabelInfo);
-            hiringFiringTextBox = new TextBox()
+            formHiring.Controls.Add(addLabelInfo);
+            hiringTextBox = new TextBox()
             {
                 Location = new Point(20, 50),
                 Width = 250
             };
-            formHiringFiring.Controls.Add(hiringFiringTextBox);
+            formHiring.Controls.Add(hiringTextBox);
             Button buttonDone = new Button()
             {
                 Location = new Point(20, 80),
@@ -46,23 +46,23 @@ namespace CSharp_LB3
                 Height = 20,
                 Text = "Done"
             };
-            buttonDone.Click += new System.EventHandler(buttonDoneHiringFiringOnClick);
-            formHiringFiring.Controls.Add(buttonDone);
+            buttonDone.Click += new System.EventHandler(buttonDoneHiringOnClick);
+            formHiring.Controls.Add(buttonDone);
         }
 
-        private void buttonDoneHiringFiringOnClick(object sender, EventArgs eventArgs)
+        private void buttonDoneHiringOnClick(object sender, EventArgs eventArgs)
         {
             int resultAdd = 0;
-            Int32.TryParse(hiringFiringTextBox.Text, out resultAdd);
+            Int32.TryParse(hiringTextBox.Text, out resultAdd);
 
-            if (hiringFiringTextBox.Text == "")
+            if (hiringTextBox.Text == "")
                 MessageBox.Show("Введіть значення!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (resultAdd == 0)
                 MessageBox.Show("Неправильний формат даних!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 arr.ElementAt(comboBoxPorts.SelectedIndex).CountEmployees += resultAdd;
-                formHiringFiring.Close();
+                formHiring.Close();
             }
         }
     }

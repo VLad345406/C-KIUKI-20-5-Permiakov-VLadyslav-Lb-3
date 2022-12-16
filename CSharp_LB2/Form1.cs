@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CSharp_LB3
@@ -8,9 +13,6 @@ namespace CSharp_LB3
     public partial class Form1 : Form
     {
         HashSet<Ports> arr;
-        private Dictionary<string, Worker> dictionaryWorkers;
-        private List<Item> equipment;
-        private List<Dock> Docks;
 
         public Form1()
         {
@@ -69,6 +71,65 @@ namespace CSharp_LB3
                 MessageBox.Show("Цей порт не зможе прийняти стільки кораблів!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
+                List<Dock> listDockTemp = new List<Dock>();
+                Dock dockTemp = new Dock();
+                
+                List<int> arrayNumberVechicles = new List<int>();
+                int tempCountVechicles = numberVehicles;
+                int countNumberVechicle = 1;
+
+                List<string> workersNumber = new List<string>();
+                long currentNumberWorker = 111111111111;
+                int tempCountWorkers = countEmployees;
+
+                for (int i = 0; i < numberBerths; i++)
+                {
+                    dockTemp.accountNumberDock = i+1.ToString();
+                    //генерування номерів кораблів
+                    if (tempCountVechicles >= 5)
+                    {
+                        for (int j = 0; j < 5; j++)
+                        {
+                            arrayNumberVechicles.Add(countNumberVechicle);
+                            countNumberVechicle++;
+                        }
+                        tempCountVechicles -= 5;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < tempCountVechicles; j++)
+                        {
+                            arrayNumberVechicles.Add(countNumberVechicle);
+                            countNumberVechicle++;
+                        }
+                    }
+
+                    //генерування податкових номерів співробітників
+                    if (tempCountWorkers >= 20)
+                    {
+                        for (int j = 0; j < 20; j++)
+                        {
+                            workersNumber.Add(currentNumberWorker.ToString());
+                            currentNumberWorker++;
+                        }
+                        tempCountWorkers -= 20;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < tempCountWorkers; j++)
+                        {
+                            workersNumber.Add(currentNumberWorker.ToString());
+                            currentNumberWorker++;
+                        }
+                    }
+                    dockTemp.numbersVehicles = arrayNumberVechicles;
+                    dockTemp.workersIndividualNumber = workersNumber;
+                    dockTemp.actualNumberOfHours = serviceTime;
+                    listDockTemp.Add(dockTemp);
+                    arrayNumberVechicles.Clear();
+                    workersNumber.Clear();
+                }
+
                 Ports temp = new Ports();
                 temp.Name = textBoxName.Text;
                 temp.Adress = textBoxAdress.Text;
@@ -79,36 +140,13 @@ namespace CSharp_LB3
                 temp.ServiceTime = serviceTime;
                 temp.CountBerths = numberBerths;
                 temp.CountShips = countShips;
-                temp.SpentServiceTime = calcTime(numberVehicles, countEmployees, serviceTime);
+
+                temp.listDocks = listDockTemp;
+
+                temp.SpentServiceTime = calcTime(numberVehicles, countEmployees, serviceTime, listDockTemp);
                 temp.ServiceProfit = calcProfit(numberVehicles, maintenanceCost);
-
-                Dock tempDock = new Dock();
-                List<Dock> tempListDock = new List<Dock>();
-                
-                
-                int tempVehicles = numberVehicles, tempEmployees = countEmployees;
-                int iBerths = 0, iEmployees = 0, iVehicles = 0;
-                while (tempVehicles >= 5)
-                {
-                    tempDock.accountNumberDock = iBerths + 1.ToString();
-                    int iWhile = 0;
-                    while (iWhile < 5 || iWhile < tempVehicles)
-                    {
-                        tempDock.numbersVehicles.Add(iVehicles + 1);
-                        iVehicles++;
-                        iWhile++;
-                    }
-
-                    iWhile = 0;
-                    while (tempEmployees >= 15 || iWhile < 15)
-                    {
-                        tempDock.workersIndividualNumber.Add((iEmployees + 1).ToString());
-                        iWhile++;
-                        iEmployees++;
-                    }
-                }
-
                 arr.Add(temp);
+                arr.ElementAt(arr.Count() - 1).SetIndex = arr.Count() - 1;
                 comboBoxPorts.Items.Add(textBoxName.Text);
                 clearForm();
             }
@@ -119,8 +157,10 @@ namespace CSharp_LB3
         {
             if (radioButtonShow.Checked)
                 addInfoToDataGridView(dataGridView1, comboBoxPorts.SelectedIndex);
-            else if (radioButtonHiringFiring.Checked)
-                initializeFormHiringFiring();
+            else if (radioButtonHiring.Checked)
+                initializeFormHiring();
+            else if (radioButtonFiring.Checked)
+                initializeFormFiring();
             else if (radioButtonCopy.Checked)
             {
                 if (arr.Count == 0)
