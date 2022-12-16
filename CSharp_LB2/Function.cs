@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CSharp_LB3
@@ -10,7 +7,7 @@ namespace CSharp_LB3
     public partial class Form1
     {
         //функція розрахунку витраченого часу на ремонту в порта
-        private int calcTime(int numberVechicles, int countEmployees, int serviceTime)
+        private int calcTime(int numberVechicles, int countEmployees, int serviceTime, List<Dock> listDock)
         {
             int result = 0;
 
@@ -85,6 +82,31 @@ namespace CSharp_LB3
                 }
             }
 
+            return result;
+        }
+
+        //перевірка на правильність вводу облікового номеру
+        bool checkAccountNumber (string accountNumber)
+        {
+            bool result = false;
+            bool checkInFor = false;
+            string number = "0123456789";
+            for (int i = 0; i < accountNumber.Length; i++)
+            {
+                for (int j = 0; j < number.Length; j++)
+                {
+                    if (accountNumber[i] == number[j])
+                    {
+                        checkInFor = true;
+                        break;
+                    }
+                }
+                if (!checkInFor)
+                {
+                    result = true;
+                    break;
+                }    
+            }
             return result;
         }
     }

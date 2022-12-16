@@ -20,6 +20,13 @@ namespace CSharp_LB3
         public int SpentServiceTime;
         public int ServiceProfit;
 
+        public List<Dock> listDocks;
+
+        private Dictionary<string, Worker> Workers;
+        private List<Item> Equipment;
+        private List<Dock> Docks;
+        private int index;
+
         //конструктор без параметрів (ініціалізуючий)
         public Ports()
         {
@@ -52,9 +59,28 @@ namespace CSharp_LB3
             ServiceProfit = port.ServiceProfit;
         }
 
+        //getters & setters
         public int GetCountEmployees
         {
             get { return CountEmployees; }
+        }
+
+        public Dock GetSetDockInfo
+        {
+            get 
+            {
+                Dock getter = Docks[index];
+                return getter;
+            }
+            set 
+            {
+                Docks.Add(value);
+            }
+        }
+
+        public int SetIndex
+        {
+            set { index = value; }
         }
     }
 
@@ -102,11 +128,11 @@ namespace CSharp_LB3
 
     class Dock : Item
     {
-        string accountNumberDock;
+        public string accountNumberDock;
         const int constNumberOfHours = 30;
-        List<int> countVehicles;
-        List<string> workersIndividualNumber;
-        int actualNumberOfHours;
+        public List<int> numbersVehicles;
+        public List<string> workersIndividualNumber;
+        public int actualNumberOfHours;
 
         public int GetDockCountBerth
         {
