@@ -14,7 +14,7 @@ namespace CSharp_LB3
         
         int hiringIndex, hiringCountEmployees;
         string hiringMode;
-        //ініціалізація форми найму/звільнення працівників
+        //ініціалізація форми найму працівників
         public void initializeFormHiring(int index, int count, string mode)
         {
             hiringIndex = index;
@@ -175,9 +175,9 @@ namespace CSharp_LB3
                 newWorker.salary = resultParseSalary;
                 newWorker.workerNumberBerths = resultParseNumberBerths;
 
-                Dictionary<string, Worker> tempDictionary = arr.ElementAt(hiringIndex).GetSetWorkers;
-                tempDictionary.Add(hiringTextBoxIndividualNumber.Text, newWorker);
-                arr.ElementAt(hiringIndex).GetSetWorkers = tempDictionary;
+                Dictionary<string, Worker> hiringDictionaryWorkers = arr.ElementAt(hiringIndex).GetSetWorkers;
+                hiringDictionaryWorkers.Add(hiringTextBoxIndividualNumber.Text, newWorker);
+                arr.ElementAt(hiringIndex).GetSetWorkers = hiringDictionaryWorkers;
                 hiringCountEmployees--;
                 if (hiringCountEmployees > 0)
                 {

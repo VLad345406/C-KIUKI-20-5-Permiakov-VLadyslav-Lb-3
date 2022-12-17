@@ -96,8 +96,6 @@ namespace CSharp_LB3
                 int countNumberVechicle = 1;
 
                 List<string> workersNumber = new List<string>();
-                long currentNumberWorker = 111111111111;
-                int tempCountWorkers = countEmployees;
 
                 for (int i = 0; i < numberBerths; i++)
                 {
@@ -122,22 +120,14 @@ namespace CSharp_LB3
                     }
 
                     //генерування податкових номерів співробітників
-                    //Worker tempWorkers = ;
-                    if (tempCountWorkers >= 15)
+                    Dictionary<string, Worker> currentDockWorkers = arr.ElementAt(arr.Count() - 1).GetSetWorkers;
+
+                    for (int j = 1; j <= numberBerths; j++)
                     {
-                        for (int j = 0; j < 15; j++)
+                        for (int k = 0; k < currentDockWorkers.Count(); k++)
                         {
-                            workersNumber.Add(currentNumberWorker.ToString());
-                            currentNumberWorker++;
-                        }
-                        tempCountWorkers -= 15;
-                    }
-                    else
-                    {
-                        for (int j = 0; j < tempCountWorkers; j++)
-                        {
-                            workersNumber.Add(currentNumberWorker.ToString());
-                            currentNumberWorker++;
+                            if (j == currentDockWorkers.ElementAt(k).Value.workerNumberBerths)
+                                workersNumber.Add(currentDockWorkers.ElementAt(k).Key);
                         }
                     }
 
@@ -164,7 +154,7 @@ namespace CSharp_LB3
             else if (radioButtonHiring.Checked)
                 initializeFormHiring(comboBoxPorts.SelectedIndex, 1, "Add");
             else if (radioButtonFiring.Checked)
-                initializeFormFiring();
+                initializeFormFiring(comboBoxPorts.SelectedIndex);
             else if (radioButtonCopy.Checked)
             {
                 if (arr.Count == 0)
@@ -195,7 +185,7 @@ namespace CSharp_LB3
 
         private void buttonTest_Click(object sender, EventArgs e)
         {
-            initializeFormHiring(1, 1, "Add");
+            initializeFormFiring(1);
         }
     }
 }
