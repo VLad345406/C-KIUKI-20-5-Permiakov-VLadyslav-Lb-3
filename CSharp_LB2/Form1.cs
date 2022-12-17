@@ -30,26 +30,18 @@ namespace CSharp_LB3
             bool checkRepeat = checkPortsRepeat(textBoxName.Text);
 
             //конвертація необхідних даних з string в int
-            int countEmployees, numberVehicles, costVehicles, maintenanceCost, serviceTime, numberBerths, countShips;
+            int countEmployees, numberVehicles, maintenanceCost, serviceTime, numberBerths;
             Int32.TryParse(textBoxCountEmployees.Text, out countEmployees);
             Int32.TryParse(textBoxNumberVehicles.Text, out numberVehicles);
-            Int32.TryParse(textBoxCostVehicles.Text, out costVehicles);
             Int32.TryParse(textBoxMaintenanceCost.Text, out maintenanceCost);
             Int32.TryParse(textBoxServiceTime.Text, out serviceTime);
             Int32.TryParse(textBoxNumberBerths.Text, out numberBerths);
-            Int32.TryParse(textBoxCountShips.Text, out countShips);
 
             //перевірки на правильність заповнення
-            if (textBoxName.Text == "" || textBoxName.Text == "Назва порту" ||
-                textBoxAdress.Text == "" || textBoxAdress.Text == "Адреса порту" ||
-                textBoxCountEmployees.Text == "" || textBoxCountEmployees.Text == "Кількість працівників порту" ||
-                textBoxNumberVehicles.Text == "" || textBoxNumberVehicles.Text == "Кількість одиниць техніки" ||
-                textBoxCostVehicles.Text == "" || textBoxCostVehicles.Text == "Вартість однієї одиниці техніки" ||
-                textBoxMaintenanceCost.Text == "" || textBoxMaintenanceCost.Text == "Вартість обслуговування одного корабля" ||
-                textBoxServiceTime.Text == "" || textBoxServiceTime.Text == "Час обслуговування одного корабля" ||
-                textBoxNumberBerths.Text == "" || textBoxNumberBerths.Text == "Кількість причалів (на 1 причал - 5 одиниць техніки та 15 робочих" ||
-                textBoxCountShips.Text == "" || textBoxCountShips.Text == "Кількість кораблів, що обслуговуються портом"
-                )
+            if (textBoxName.Text == "" || textBoxAdress.Text == "" ||
+                textBoxCountEmployees.Text == "" || textBoxNumberVehicles.Text == "" ||
+                textBoxMaintenanceCost.Text == "" || textBoxServiceTime.Text == "" || 
+                textBoxNumberBerths.Text == "")
                 MessageBox.Show("Недостатньо даних!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (checkRepeat)
                 MessageBox.Show("Такий порт вже існує!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -57,16 +49,12 @@ namespace CSharp_LB3
                 MessageBox.Show("Неправильно вказана кількість працівників!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (numberVehicles <= 0)
                 MessageBox.Show("Неправильно вказана кількість техніки!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (costVehicles <= 0)
-                MessageBox.Show("Неправильно вказана вартість техніки!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (maintenanceCost <= 0)
                 MessageBox.Show("Неправильно вказана вартість обслуговування техніки!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (serviceTime <= 0)
                 MessageBox.Show("Неправильно вказаний час обслуговування!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (numberBerths <= 0)
                 MessageBox.Show("Неправильно вказана кількість причалів!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (countShips <= 0)
-                MessageBox.Show("Неправильно вказана кількість кораблів, що обслуговується!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (numberVehicles / 5 > numberBerths)
                 MessageBox.Show("Цей порт не зможе прийняти стільки кораблів!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -76,11 +64,9 @@ namespace CSharp_LB3
                 temp.Adress = textBoxAdress.Text;
                 temp.CountEmployees = countEmployees;
                 temp.CountVehicles = numberVehicles;
-                temp.CostVehicles = costVehicles;
                 temp.MaintenanceCost = maintenanceCost;
                 temp.ServiceTime = serviceTime;
                 temp.CountBerths = numberBerths;
-                temp.CountShips = countShips;
                 
                 temp.ServiceProfit = calcProfit(numberVehicles, maintenanceCost);
                 arr.Add(temp);
@@ -92,8 +78,6 @@ namespace CSharp_LB3
                 Dock dockTemp = new Dock();
 
                 List<int> arrayNumberVechicles = new List<int>();
-                int tempCountVechicles = numberVehicles;
-                int countNumberVechicle = 1;
 
                 List<string> workersNumber = new List<string>();
 
@@ -149,6 +133,8 @@ namespace CSharp_LB3
             }
             else if (radioButtonAddVechicle.Checked)
                 initializeFormAddVechicles(comboBoxPorts.SelectedIndex, 1, "Add");
+            else if (radioButtonRemoveVechicle.Checked)
+                initializeFormRemoveVechicles(comboBoxPorts.SelectedIndex);
             else
                 MessageBox.Show("Оберіть режим роботи!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -163,7 +149,8 @@ namespace CSharp_LB3
 
         private void buttonTest_Click(object sender, EventArgs e)
         {
-            initializeFormAddVechicles(1, 1, "Add");
+            initializeFormRemoveVechicles(1);
+            //initializeFormAddVechicles(1, 1, "Add");
             //initializeFormHiring(1, 1, "Add");
         }
     }

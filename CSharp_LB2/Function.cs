@@ -37,11 +37,9 @@ namespace CSharp_LB3
             dataGridView.Rows.Add("Адреса порту", arr.ElementAt(index).Adress);
             dataGridView.Rows.Add("Кількість працівників порту", arr.ElementAt(index).CountEmployees);
             dataGridView.Rows.Add("Кількість одиниць техніки", arr.ElementAt(index).CountVehicles);
-            dataGridView.Rows.Add("Вартість однієї одиниці техніки", arr.ElementAt(index).CostVehicles + " $");
             dataGridView.Rows.Add("Вартість обслуговування одного корабля", arr.ElementAt(index).MaintenanceCost + " $");
             dataGridView.Rows.Add("Час обслуговування одного корабля", arr.ElementAt(index).ServiceTime + " год.");
             dataGridView.Rows.Add("Кількість причалів", arr.ElementAt(index).CountBerths);
-            dataGridView.Rows.Add("Кількість кораблів, що обслуговуються", arr.ElementAt(index).CountShips);
 
             dataGridView.Rows.Add();
             dataGridView.Rows.Add("Розраховані дані");
@@ -54,15 +52,13 @@ namespace CSharp_LB3
         //очищення полів вводу
         private void clearForm()
         {
-            textBoxName.AddPlaceholder("Назва порту");
-            textBoxAdress.AddPlaceholder("Адреса порту");
-            textBoxCountEmployees.AddPlaceholder("Кількість працівників порту");
-            textBoxNumberVehicles.AddPlaceholder("Кількість одиниць техніки");
-            textBoxCostVehicles.AddPlaceholder("Вартість однієї одиниці техніки");
-            textBoxMaintenanceCost.AddPlaceholder("Вартість обслуговування одного корабля");
-            textBoxServiceTime.AddPlaceholder("Час обслуговування одного корабля");
-            textBoxNumberBerths.AddPlaceholder("Кількість причалів (на 1 причал - 5 одиниць техніки та 15 робочих");
-            textBoxCountShips.AddPlaceholder("Кількість кораблів, що обслуговуються портом");
+            textBoxName.Text = "";
+            textBoxAdress.Text = "";
+            textBoxCountEmployees.Text = "";
+            textBoxNumberVehicles.Text = "";
+            textBoxMaintenanceCost.Text = "";
+            textBoxServiceTime.Text = "";
+            textBoxNumberBerths.Text = "";
         }
 
         //перевірка на повторюваність портів
@@ -124,6 +120,31 @@ namespace CSharp_LB3
                 for (int j = 0; j < checkNumber.Count(); j++)
                 {
                     if (accountNumber == checkNumber.ElementAt(j).Key)
+                    {
+                        checkInFor = true;
+                        break;
+                    }
+                }
+                if (checkInFor)
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
+        }
+
+        //перевірка на повторюваність облікового номера техніки
+        bool checkVechiclesRepeat(int vechicleNumber)
+        {
+            bool result = false;
+            bool checkInFor;
+            for (int i = 0; i < arr.Count(); i++)
+            {
+                checkInFor = false;
+                for (int j = 0; j < arr.ElementAt(i).listMachines.Count(); j++)
+                {
+                    if (vechicleNumber == arr.ElementAt(i).listMachines[j].uniqueNumber)
                     {
                         checkInFor = true;
                         break;

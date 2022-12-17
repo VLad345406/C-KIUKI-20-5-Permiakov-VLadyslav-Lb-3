@@ -9,11 +9,9 @@ namespace CSharp_LB3
         public string Adress;
         public int CountEmployees;
         public int CountVehicles;
-        public int CostVehicles;
         public int MaintenanceCost;
         public int ServiceTime;
         public int CountBerths;
-        public int CountShips;
         public int SpentServiceTime;
         public int ServiceProfit;
 
@@ -32,11 +30,9 @@ namespace CSharp_LB3
             Adress = "";
             CountEmployees = 0;
             CountVehicles = 0;
-            CostVehicles = 0;
             MaintenanceCost = 0;
             ServiceTime = 0;
             CountBerths = 0;
-            CountShips = 0;
             SpentServiceTime = 0;
             ServiceProfit = 0;
             Workers = new Dictionary<string, Worker>();
@@ -50,11 +46,9 @@ namespace CSharp_LB3
             Adress = port.Adress;
             CountEmployees = port.CountEmployees;
             CountVehicles = port.CountVehicles;
-            CostVehicles = port.CostVehicles;
             MaintenanceCost = port.MaintenanceCost;
             ServiceTime = port.ServiceTime;
             CountBerths = port.CountBerths;
-            CountShips = port.CountShips;
             SpentServiceTime = port.SpentServiceTime;
             ServiceProfit = port.ServiceProfit;
         }

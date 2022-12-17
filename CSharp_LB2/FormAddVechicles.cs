@@ -148,6 +148,8 @@ namespace CSharp_LB3
                 MessageBox.Show("Введіть обліковий номер!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (numberParse <= 0)
                 MessageBox.Show("Неправильний формат облікового номера!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (checkVechiclesRepeat(numberParse))
+                MessageBox.Show("Такий обліковий номер вже існує!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 Machine addMachine = new Machine()
