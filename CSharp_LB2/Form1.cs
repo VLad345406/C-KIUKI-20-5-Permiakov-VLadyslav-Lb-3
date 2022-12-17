@@ -71,9 +71,26 @@ namespace CSharp_LB3
                 MessageBox.Show("Цей порт не зможе прийняти стільки кораблів!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
+                Ports temp = new Ports();
+                temp.Name = textBoxName.Text;
+                temp.Adress = textBoxAdress.Text;
+                temp.CountEmployees = countEmployees;
+                temp.CountVehicles = numberVehicles;
+                temp.CostVehicles = costVehicles;
+                temp.MaintenanceCost = maintenanceCost;
+                temp.ServiceTime = serviceTime;
+                temp.CountBerths = numberBerths;
+                temp.CountShips = countShips;
+                
+                temp.ServiceProfit = calcProfit(numberVehicles, maintenanceCost);
+                arr.Add(temp);
+                arr.ElementAt(arr.Count() - 1).SetIndex = arr.Count() - 1;
+
+                initializeFormHiring(arr.Count() - 1, countEmployees, "New");
+
                 List<Dock> listDockTemp = new List<Dock>();
                 Dock dockTemp = new Dock();
-                
+
                 List<int> arrayNumberVechicles = new List<int>();
                 int tempCountVechicles = numberVehicles;
                 int countNumberVechicle = 1;
@@ -84,7 +101,7 @@ namespace CSharp_LB3
 
                 for (int i = 0; i < numberBerths; i++)
                 {
-                    dockTemp.accountNumberDock = i+1.ToString();
+                    dockTemp.accountNumberDock = i + 1.ToString();
                     //генерування номерів кораблів
                     if (tempCountVechicles >= 5)
                     {
@@ -105,14 +122,15 @@ namespace CSharp_LB3
                     }
 
                     //генерування податкових номерів співробітників
-                    if (tempCountWorkers >= 20)
+                    //Worker tempWorkers = ;
+                    if (tempCountWorkers >= 15)
                     {
-                        for (int j = 0; j < 20; j++)
+                        for (int j = 0; j < 15; j++)
                         {
                             workersNumber.Add(currentNumberWorker.ToString());
                             currentNumberWorker++;
                         }
-                        tempCountWorkers -= 20;
+                        tempCountWorkers -= 15;
                     }
                     else
                     {
@@ -122,6 +140,7 @@ namespace CSharp_LB3
                             currentNumberWorker++;
                         }
                     }
+
                     dockTemp.numbersVehicles = arrayNumberVechicles;
                     dockTemp.workersIndividualNumber = workersNumber;
                     dockTemp.actualNumberOfHours = serviceTime;
@@ -129,24 +148,9 @@ namespace CSharp_LB3
                     arrayNumberVechicles.Clear();
                     workersNumber.Clear();
                 }
-
-                Ports temp = new Ports();
-                temp.Name = textBoxName.Text;
-                temp.Adress = textBoxAdress.Text;
-                temp.CountEmployees = countEmployees;
-                temp.CountVehicles = numberVehicles;
-                temp.CostVehicles = costVehicles;
-                temp.MaintenanceCost = maintenanceCost;
-                temp.ServiceTime = serviceTime;
-                temp.CountBerths = numberBerths;
-                temp.CountShips = countShips;
-
                 temp.listDocks = listDockTemp;
-
                 temp.SpentServiceTime = calcTime(numberVehicles, countEmployees, serviceTime, listDockTemp);
-                temp.ServiceProfit = calcProfit(numberVehicles, maintenanceCost);
-                arr.Add(temp);
-                arr.ElementAt(arr.Count() - 1).SetIndex = arr.Count() - 1;
+
                 comboBoxPorts.Items.Add(textBoxName.Text);
                 clearForm();
             }
@@ -158,7 +162,7 @@ namespace CSharp_LB3
             if (radioButtonShow.Checked)
                 addInfoToDataGridView(dataGridView1, comboBoxPorts.SelectedIndex);
             else if (radioButtonHiring.Checked)
-                initializeFormHiring();
+                initializeFormHiring(comboBoxPorts.SelectedIndex, 1, "Add");
             else if (radioButtonFiring.Checked)
                 initializeFormFiring();
             else if (radioButtonCopy.Checked)
@@ -187,6 +191,11 @@ namespace CSharp_LB3
                 initializeFormComparison();
             else
                 MessageBox.Show("Не можна запустити порівняння, доки записаних портів менше 2х!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+            initializeFormHiring(1, 1, "Add");
         }
     }
 }

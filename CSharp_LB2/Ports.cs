@@ -38,6 +38,7 @@ namespace CSharp_LB3
             CountShips = 0;
             SpentServiceTime = 0;
             ServiceProfit = 0;
+            Workers = new Dictionary<string, Worker>();
         }
 
         //конструктор копіювання
@@ -79,6 +80,12 @@ namespace CSharp_LB3
         {
             set { index = value; }
         }
+
+        public Dictionary<string, Worker> GetSetWorkers
+        {
+            get { return Workers; }
+            set { Workers = value; }
+        }
     }
 
     //реалізація інтерфейсу IEqualityComparer
@@ -100,10 +107,10 @@ namespace CSharp_LB3
 
     class Worker
     {
-        string individualNumber;
-        string surname, name, patronymic;
-        int salary;
-        int workerNumberBerths;
+        public string individualNumber;
+        public string surname, name, patronymic;
+        public int salary;
+        public int workerNumberBerths;
     }
 
     abstract class Item : Ports

@@ -44,11 +44,12 @@ namespace CSharp_LB3
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radioButtonShow = new System.Windows.Forms.RadioButton();
             this.groupBoxMode = new System.Windows.Forms.GroupBox();
+            this.radioButtonFiring = new System.Windows.Forms.RadioButton();
             this.radioButtonCopy = new System.Windows.Forms.RadioButton();
             this.radioButtonHiring = new System.Windows.Forms.RadioButton();
             this.buttonComparison = new System.Windows.Forms.Button();
-            this.radioButtonFiring = new System.Windows.Forms.RadioButton();
             this.textBoxCountShips = new System.Windows.Forms.TextBox();
+            this.buttonTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxMode.SuspendLayout();
             this.SuspendLayout();
@@ -175,6 +176,17 @@ namespace CSharp_LB3
             this.groupBoxMode.TabStop = false;
             this.groupBoxMode.Text = "Режим роботи";
             // 
+            // radioButtonFiring
+            // 
+            this.radioButtonFiring.AutoSize = true;
+            this.radioButtonFiring.Location = new System.Drawing.Point(257, 19);
+            this.radioButtonFiring.Name = "radioButtonFiring";
+            this.radioButtonFiring.Size = new System.Drawing.Size(82, 17);
+            this.radioButtonFiring.TabIndex = 15;
+            this.radioButtonFiring.TabStop = true;
+            this.radioButtonFiring.Text = "Звільнення";
+            this.radioButtonFiring.UseVisualStyleBackColor = true;
+            // 
             // radioButtonCopy
             // 
             this.radioButtonCopy.AutoSize = true;
@@ -207,17 +219,6 @@ namespace CSharp_LB3
             this.buttonComparison.UseVisualStyleBackColor = true;
             this.buttonComparison.Click += new System.EventHandler(this.buttonComparison_Click);
             // 
-            // radioButtonFiring
-            // 
-            this.radioButtonFiring.AutoSize = true;
-            this.radioButtonFiring.Location = new System.Drawing.Point(257, 19);
-            this.radioButtonFiring.Name = "radioButtonFiring";
-            this.radioButtonFiring.Size = new System.Drawing.Size(82, 17);
-            this.radioButtonFiring.TabIndex = 15;
-            this.radioButtonFiring.TabStop = true;
-            this.radioButtonFiring.Text = "Звільнення";
-            this.radioButtonFiring.UseVisualStyleBackColor = true;
-            // 
             // textBoxCountShips
             // 
             this.textBoxCountShips.Location = new System.Drawing.Point(102, 269);
@@ -225,11 +226,22 @@ namespace CSharp_LB3
             this.textBoxCountShips.Size = new System.Drawing.Size(371, 20);
             this.textBoxCountShips.TabIndex = 9;
             // 
+            // buttonTest
+            // 
+            this.buttonTest.Location = new System.Drawing.Point(438, 316);
+            this.buttonTest.Name = "buttonTest";
+            this.buttonTest.Size = new System.Drawing.Size(75, 23);
+            this.buttonTest.TabIndex = 18;
+            this.buttonTest.Text = "Test button";
+            this.buttonTest.UseVisualStyleBackColor = true;
+            this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 371);
+            this.Controls.Add(this.buttonTest);
             this.Controls.Add(this.textBoxCountShips);
             this.Controls.Add(this.buttonComparison);
             this.Controls.Add(this.groupBoxMode);
@@ -278,6 +290,7 @@ namespace CSharp_LB3
         private System.Windows.Forms.RadioButton radioButtonFiring;
         private System.Windows.Forms.RadioButton radioButtonHiring;
         private System.Windows.Forms.TextBox textBoxCountShips;
+        private System.Windows.Forms.Button buttonTest;
     }
 }
 

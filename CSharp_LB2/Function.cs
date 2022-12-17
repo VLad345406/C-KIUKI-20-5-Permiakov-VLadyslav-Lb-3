@@ -89,10 +89,11 @@ namespace CSharp_LB3
         bool checkAccountNumber (string accountNumber)
         {
             bool result = false;
-            bool checkInFor = false;
+            bool checkInFor;
             string number = "0123456789";
             for (int i = 0; i < accountNumber.Length; i++)
             {
+                checkInFor = false;
                 for (int j = 0; j < number.Length; j++)
                 {
                     if (accountNumber[i] == number[j])
@@ -106,6 +107,33 @@ namespace CSharp_LB3
                     result = true;
                     break;
                 }    
+            }
+            return result;
+        }
+
+        //перевірка на повторюваність облікового номера
+        bool checkAccountNumberRepeat(string accountNumber)
+        {
+            Dictionary<string, Worker> checkNumber;
+            bool result = false;
+            bool checkInFor;
+            for (int i = 0; i < arr.Count; i++)
+            {
+                checkNumber = arr.ElementAt(i).GetSetWorkers;
+                checkInFor = false;
+                for (int j = 0; j < checkNumber.Count(); j++)
+                {
+                    if (accountNumber == checkNumber.ElementAt(j).Key)
+                    {
+                        checkInFor = true;
+                        break;
+                    }
+                }
+                if (checkInFor)
+                {
+                    result = true;
+                    break;
+                }
             }
             return result;
         }
