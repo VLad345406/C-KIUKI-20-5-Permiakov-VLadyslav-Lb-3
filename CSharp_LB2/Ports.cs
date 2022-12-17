@@ -18,6 +18,7 @@ namespace CSharp_LB3
         public int ServiceProfit;
 
         public List<Dock> listDocks;
+        public List<Machine> listMachines;
 
         private Dictionary<string, Worker> Workers;
         private List<Item> Equipment;
@@ -39,6 +40,7 @@ namespace CSharp_LB3
             SpentServiceTime = 0;
             ServiceProfit = 0;
             Workers = new Dictionary<string, Worker>();
+            listMachines = new List<Machine>();
         }
 
         //конструктор копіювання
@@ -115,14 +117,14 @@ namespace CSharp_LB3
 
     abstract class Item : Ports
     {
-        int cost;
-        int countWorkers;
+        public int cost;
+        public int countWorkers;
     }
 
     class Machine : Item
     {
-        int uniqueNumber;
-        bool isWorking;
+        public int uniqueNumber;
+        public bool isWorking;
 
         public int GetMachineCount
         {

@@ -97,50 +97,26 @@ namespace CSharp_LB3
 
                 List<string> workersNumber = new List<string>();
 
-                for (int i = 0; i < numberBerths; i++)
+                initializeFormAddVechicles(arr.Count() - 1, numberVehicles, "New");
+
+                //генерування податкових номерів співробітників
+                Dictionary<string, Worker> currentDockWorkers = arr.ElementAt(arr.Count() - 1).GetSetWorkers;
+
+                for (int i = 1; i <= numberBerths; i++)
                 {
-                    dockTemp.accountNumberDock = i + 1.ToString();
-                    //генерування номерів кораблів
-                    if (tempCountVechicles >= 5)
+                    for (int j = 0; j < currentDockWorkers.Count(); j++)
                     {
-                        for (int j = 0; j < 5; j++)
-                        {
-                            arrayNumberVechicles.Add(countNumberVechicle);
-                            countNumberVechicle++;
-                        }
-                        tempCountVechicles -= 5;
+                        if (i == currentDockWorkers.ElementAt(j).Value.workerNumberBerths)
+                            workersNumber.Add(currentDockWorkers.ElementAt(j).Key);
                     }
-                    else
-                    {
-                        for (int j = 0; j < tempCountVechicles; j++)
-                        {
-                            arrayNumberVechicles.Add(countNumberVechicle);
-                            countNumberVechicle++;
-                        }
-                    }
-
-                    //генерування податкових номерів співробітників
-                    Dictionary<string, Worker> currentDockWorkers = arr.ElementAt(arr.Count() - 1).GetSetWorkers;
-
-                    for (int j = 1; j <= numberBerths; j++)
-                    {
-                        for (int k = 0; k < currentDockWorkers.Count(); k++)
-                        {
-                            if (j == currentDockWorkers.ElementAt(k).Value.workerNumberBerths)
-                                workersNumber.Add(currentDockWorkers.ElementAt(k).Key);
-                        }
-                    }
-
-                    dockTemp.numbersVehicles = arrayNumberVechicles;
-                    dockTemp.workersIndividualNumber = workersNumber;
-                    dockTemp.actualNumberOfHours = serviceTime;
-                    listDockTemp.Add(dockTemp);
-                    arrayNumberVechicles.Clear();
-                    workersNumber.Clear();
                 }
-                temp.listDocks = listDockTemp;
-                temp.SpentServiceTime = calcTime(numberVehicles, countEmployees, serviceTime, listDockTemp);
-
+                dockTemp.workersIndividualNumber = workersNumber;
+                dockTemp.numbersVehicles = arrayNumberVechicles;
+                dockTemp.workersIndividualNumber = workersNumber;
+                dockTemp.actualNumberOfHours = serviceTime;
+                listDockTemp.Add(dockTemp);
+                arr.ElementAt(arr.Count() - 1).listDocks = listDockTemp;
+                arr.ElementAt(arr.Count() - 1).SpentServiceTime = calcTime(numberVehicles, countEmployees, serviceTime, listDockTemp);
                 comboBoxPorts.Items.Add(textBoxName.Text);
                 clearForm();
             }
@@ -171,6 +147,8 @@ namespace CSharp_LB3
                     }
                 }
             }
+            else if (radioButtonAddVechicle.Checked)
+                initializeFormAddVechicles(comboBoxPorts.SelectedIndex, 1, "Add");
             else
                 MessageBox.Show("Оберіть режим роботи!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -185,7 +163,8 @@ namespace CSharp_LB3
 
         private void buttonTest_Click(object sender, EventArgs e)
         {
-            initializeFormFiring(1);
+            initializeFormAddVechicles(1, 1, "Add");
+            //initializeFormHiring(1, 1, "Add");
         }
     }
 }

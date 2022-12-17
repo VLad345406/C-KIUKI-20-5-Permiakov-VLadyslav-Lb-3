@@ -53,6 +53,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddVechicles.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormComparison.cs">
       <SubType>Form</SubType>
     </Compile>

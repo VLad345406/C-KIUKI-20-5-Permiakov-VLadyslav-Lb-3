@@ -178,6 +178,8 @@ namespace CSharp_LB3
                 Dictionary<string, Worker> hiringDictionaryWorkers = arr.ElementAt(hiringIndex).GetSetWorkers;
                 hiringDictionaryWorkers.Add(hiringTextBoxIndividualNumber.Text, newWorker);
                 arr.ElementAt(hiringIndex).GetSetWorkers = hiringDictionaryWorkers;
+                if (hiringMode == "Add")
+                    arr.ElementAt(hiringIndex).CountEmployees++;
                 hiringCountEmployees--;
                 if (hiringCountEmployees > 0)
                 {

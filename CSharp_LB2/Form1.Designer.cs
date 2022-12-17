@@ -50,6 +50,8 @@ namespace CSharp_LB3
             this.buttonComparison = new System.Windows.Forms.Button();
             this.textBoxCountShips = new System.Windows.Forms.TextBox();
             this.buttonTest = new System.Windows.Forms.Button();
+            this.radioButtonAddVechicle = new System.Windows.Forms.RadioButton();
+            this.radioButtonRemoveVechicle = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxMode.SuspendLayout();
             this.SuspendLayout();
@@ -123,7 +125,7 @@ namespace CSharp_LB3
             // comboBoxPorts
             // 
             this.comboBoxPorts.FormattingEnabled = true;
-            this.comboBoxPorts.Location = new System.Drawing.Point(541, 56);
+            this.comboBoxPorts.Location = new System.Drawing.Point(550, 82);
             this.comboBoxPorts.Name = "comboBoxPorts";
             this.comboBoxPorts.Size = new System.Drawing.Size(365, 21);
             this.comboBoxPorts.TabIndex = 16;
@@ -135,7 +137,7 @@ namespace CSharp_LB3
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(541, 83);
+            this.dataGridView1.Location = new System.Drawing.Point(550, 109);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(365, 231);
             this.dataGridView1.TabIndex = 17;
@@ -165,13 +167,15 @@ namespace CSharp_LB3
             // 
             // groupBoxMode
             // 
+            this.groupBoxMode.Controls.Add(this.radioButtonRemoveVechicle);
+            this.groupBoxMode.Controls.Add(this.radioButtonAddVechicle);
             this.groupBoxMode.Controls.Add(this.radioButtonFiring);
             this.groupBoxMode.Controls.Add(this.radioButtonCopy);
             this.groupBoxMode.Controls.Add(this.radioButtonHiring);
             this.groupBoxMode.Controls.Add(this.radioButtonShow);
-            this.groupBoxMode.Location = new System.Drawing.Point(550, 3);
+            this.groupBoxMode.Location = new System.Drawing.Point(560, 3);
             this.groupBoxMode.Name = "groupBoxMode";
-            this.groupBoxMode.Size = new System.Drawing.Size(346, 47);
+            this.groupBoxMode.Size = new System.Drawing.Size(346, 73);
             this.groupBoxMode.TabIndex = 14;
             this.groupBoxMode.TabStop = false;
             this.groupBoxMode.Text = "Режим роботи";
@@ -236,6 +240,28 @@ namespace CSharp_LB3
             this.buttonTest.UseVisualStyleBackColor = true;
             this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
             // 
+            // radioButtonAddVechicle
+            // 
+            this.radioButtonAddVechicle.AutoSize = true;
+            this.radioButtonAddVechicle.Location = new System.Drawing.Point(46, 42);
+            this.radioButtonAddVechicle.Name = "radioButtonAddVechicle";
+            this.radioButtonAddVechicle.Size = new System.Drawing.Size(121, 17);
+            this.radioButtonAddVechicle.TabIndex = 16;
+            this.radioButtonAddVechicle.TabStop = true;
+            this.radioButtonAddVechicle.Text = "Додавання техніки";
+            this.radioButtonAddVechicle.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonRemoveVechicle
+            // 
+            this.radioButtonRemoveVechicle.AutoSize = true;
+            this.radioButtonRemoveVechicle.Location = new System.Drawing.Point(173, 42);
+            this.radioButtonRemoveVechicle.Name = "radioButtonRemoveVechicle";
+            this.radioButtonRemoveVechicle.Size = new System.Drawing.Size(119, 17);
+            this.radioButtonRemoveVechicle.TabIndex = 17;
+            this.radioButtonRemoveVechicle.TabStop = true;
+            this.radioButtonRemoveVechicle.Text = "Видалення техніки";
+            this.radioButtonRemoveVechicle.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,6 +317,8 @@ namespace CSharp_LB3
         private System.Windows.Forms.RadioButton radioButtonHiring;
         private System.Windows.Forms.TextBox textBoxCountShips;
         private System.Windows.Forms.Button buttonTest;
+        private System.Windows.Forms.RadioButton radioButtonRemoveVechicle;
+        private System.Windows.Forms.RadioButton radioButtonAddVechicle;
     }
 }
 
