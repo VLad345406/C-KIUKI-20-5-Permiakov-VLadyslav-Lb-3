@@ -84,18 +84,18 @@ namespace CSharp_LB3
                 Width = 250
             };
             formHiring.Controls.Add(hiringTextBoxIndividualNumber);
-            hiringTextBoxName = new TextBox()
+            hiringTextBoxSurname = new TextBox()
             {
                 Location = new Point(110, 50),
                 Width = 250
             };
-            formHiring.Controls.Add(hiringTextBoxName);
-            hiringTextBoxSurname = new TextBox()
+            formHiring.Controls.Add(hiringTextBoxSurname);
+            hiringTextBoxName = new TextBox()
             {
                 Location = new Point(110, 80),
                 Width = 250
             };
-            formHiring.Controls.Add(hiringTextBoxSurname);
+            formHiring.Controls.Add(hiringTextBoxName);
             hiringTextBoxPatronymic = new TextBox()
             {
                 Location = new Point(110, 110),

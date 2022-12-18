@@ -49,7 +49,6 @@ namespace CSharp_LB3
             this.radioButtonCopy = new System.Windows.Forms.RadioButton();
             this.radioButtonHiring = new System.Windows.Forms.RadioButton();
             this.buttonComparison = new System.Windows.Forms.Button();
-            this.buttonTest = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.labelAdress = new System.Windows.Forms.Label();
             this.labelCountEmployees = new System.Windows.Forms.Label();
@@ -57,62 +56,65 @@ namespace CSharp_LB3
             this.labelMaintenanceCost = new System.Windows.Forms.Label();
             this.labelServiceTime = new System.Windows.Forms.Label();
             this.labelCountBerths = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxMode.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(190, 60);
+            this.textBoxName.Location = new System.Drawing.Point(193, 100);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(371, 20);
             this.textBoxName.TabIndex = 1;
             // 
             // textBoxAdress
             // 
-            this.textBoxAdress.Location = new System.Drawing.Point(190, 87);
+            this.textBoxAdress.Location = new System.Drawing.Point(193, 127);
             this.textBoxAdress.Name = "textBoxAdress";
             this.textBoxAdress.Size = new System.Drawing.Size(371, 20);
             this.textBoxAdress.TabIndex = 2;
             // 
             // textBoxCountEmployees
             // 
-            this.textBoxCountEmployees.Location = new System.Drawing.Point(190, 113);
+            this.textBoxCountEmployees.Location = new System.Drawing.Point(193, 153);
             this.textBoxCountEmployees.Name = "textBoxCountEmployees";
             this.textBoxCountEmployees.Size = new System.Drawing.Size(371, 20);
             this.textBoxCountEmployees.TabIndex = 3;
             // 
             // textBoxNumberVehicles
             // 
-            this.textBoxNumberVehicles.Location = new System.Drawing.Point(190, 140);
+            this.textBoxNumberVehicles.Location = new System.Drawing.Point(193, 180);
             this.textBoxNumberVehicles.Name = "textBoxNumberVehicles";
             this.textBoxNumberVehicles.Size = new System.Drawing.Size(371, 20);
             this.textBoxNumberVehicles.TabIndex = 4;
             // 
             // textBoxMaintenanceCost
             // 
-            this.textBoxMaintenanceCost.Location = new System.Drawing.Point(190, 166);
+            this.textBoxMaintenanceCost.Location = new System.Drawing.Point(193, 206);
             this.textBoxMaintenanceCost.Name = "textBoxMaintenanceCost";
             this.textBoxMaintenanceCost.Size = new System.Drawing.Size(371, 20);
             this.textBoxMaintenanceCost.TabIndex = 6;
             // 
             // textBoxServiceTime
             // 
-            this.textBoxServiceTime.Location = new System.Drawing.Point(190, 193);
+            this.textBoxServiceTime.Location = new System.Drawing.Point(193, 233);
             this.textBoxServiceTime.Name = "textBoxServiceTime";
             this.textBoxServiceTime.Size = new System.Drawing.Size(371, 20);
             this.textBoxServiceTime.TabIndex = 7;
             // 
             // textBoxNumberBerths
             // 
-            this.textBoxNumberBerths.Location = new System.Drawing.Point(190, 220);
+            this.textBoxNumberBerths.Location = new System.Drawing.Point(193, 260);
             this.textBoxNumberBerths.Name = "textBoxNumberBerths";
             this.textBoxNumberBerths.Size = new System.Drawing.Size(371, 20);
             this.textBoxNumberBerths.TabIndex = 8;
             // 
             // buttonAddPort
             // 
-            this.buttonAddPort.Location = new System.Drawing.Point(286, 246);
+            this.buttonAddPort.Location = new System.Drawing.Point(289, 286);
             this.buttonAddPort.Name = "buttonAddPort";
             this.buttonAddPort.Size = new System.Drawing.Size(75, 45);
             this.buttonAddPort.TabIndex = 10;
@@ -123,7 +125,7 @@ namespace CSharp_LB3
             // comboBoxPorts
             // 
             this.comboBoxPorts.FormattingEnabled = true;
-            this.comboBoxPorts.Location = new System.Drawing.Point(638, 86);
+            this.comboBoxPorts.Location = new System.Drawing.Point(641, 126);
             this.comboBoxPorts.Name = "comboBoxPorts";
             this.comboBoxPorts.Size = new System.Drawing.Size(365, 21);
             this.comboBoxPorts.TabIndex = 16;
@@ -135,7 +137,7 @@ namespace CSharp_LB3
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(638, 113);
+            this.dataGridView1.Location = new System.Drawing.Point(641, 153);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(365, 231);
             this.dataGridView1.TabIndex = 17;
@@ -171,7 +173,7 @@ namespace CSharp_LB3
             this.groupBoxMode.Controls.Add(this.radioButtonCopy);
             this.groupBoxMode.Controls.Add(this.radioButtonHiring);
             this.groupBoxMode.Controls.Add(this.radioButtonShow);
-            this.groupBoxMode.Location = new System.Drawing.Point(648, 7);
+            this.groupBoxMode.Location = new System.Drawing.Point(651, 47);
             this.groupBoxMode.Name = "groupBoxMode";
             this.groupBoxMode.Size = new System.Drawing.Size(346, 73);
             this.groupBoxMode.TabIndex = 14;
@@ -235,7 +237,7 @@ namespace CSharp_LB3
             // 
             // buttonComparison
             // 
-            this.buttonComparison.Location = new System.Drawing.Point(367, 246);
+            this.buttonComparison.Location = new System.Drawing.Point(370, 286);
             this.buttonComparison.Name = "buttonComparison";
             this.buttonComparison.Size = new System.Drawing.Size(75, 45);
             this.buttonComparison.TabIndex = 11;
@@ -243,20 +245,10 @@ namespace CSharp_LB3
             this.buttonComparison.UseVisualStyleBackColor = true;
             this.buttonComparison.Click += new System.EventHandler(this.buttonComparison_Click);
             // 
-            // buttonTest
-            // 
-            this.buttonTest.Location = new System.Drawing.Point(526, 267);
-            this.buttonTest.Name = "buttonTest";
-            this.buttonTest.Size = new System.Drawing.Size(75, 23);
-            this.buttonTest.TabIndex = 18;
-            this.buttonTest.Text = "Test button";
-            this.buttonTest.UseVisualStyleBackColor = true;
-            this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
-            // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(145, 63);
+            this.labelName.Location = new System.Drawing.Point(148, 103);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(39, 13);
             this.labelName.TabIndex = 19;
@@ -265,7 +257,7 @@ namespace CSharp_LB3
             // labelAdress
             // 
             this.labelAdress.AutoSize = true;
-            this.labelAdress.Location = new System.Drawing.Point(140, 90);
+            this.labelAdress.Location = new System.Drawing.Point(143, 130);
             this.labelAdress.Name = "labelAdress";
             this.labelAdress.Size = new System.Drawing.Size(44, 13);
             this.labelAdress.TabIndex = 20;
@@ -274,7 +266,7 @@ namespace CSharp_LB3
             // labelCountEmployees
             // 
             this.labelCountEmployees.AutoSize = true;
-            this.labelCountEmployees.Location = new System.Drawing.Point(76, 116);
+            this.labelCountEmployees.Location = new System.Drawing.Point(79, 156);
             this.labelCountEmployees.Name = "labelCountEmployees";
             this.labelCountEmployees.Size = new System.Drawing.Size(108, 13);
             this.labelCountEmployees.TabIndex = 21;
@@ -283,7 +275,7 @@ namespace CSharp_LB3
             // labelCountVechicles
             // 
             this.labelCountVechicles.AutoSize = true;
-            this.labelCountVechicles.Location = new System.Drawing.Point(111, 143);
+            this.labelCountVechicles.Location = new System.Drawing.Point(114, 183);
             this.labelCountVechicles.Name = "labelCountVechicles";
             this.labelCountVechicles.Size = new System.Drawing.Size(73, 13);
             this.labelCountVechicles.TabIndex = 22;
@@ -292,7 +284,7 @@ namespace CSharp_LB3
             // labelMaintenanceCost
             // 
             this.labelMaintenanceCost.AutoSize = true;
-            this.labelMaintenanceCost.Location = new System.Drawing.Point(50, 169);
+            this.labelMaintenanceCost.Location = new System.Drawing.Point(53, 209);
             this.labelMaintenanceCost.Name = "labelMaintenanceCost";
             this.labelMaintenanceCost.Size = new System.Drawing.Size(134, 13);
             this.labelMaintenanceCost.TabIndex = 23;
@@ -301,7 +293,7 @@ namespace CSharp_LB3
             // labelServiceTime
             // 
             this.labelServiceTime.AutoSize = true;
-            this.labelServiceTime.Location = new System.Drawing.Point(73, 196);
+            this.labelServiceTime.Location = new System.Drawing.Point(76, 236);
             this.labelServiceTime.Name = "labelServiceTime";
             this.labelServiceTime.Size = new System.Drawing.Size(111, 13);
             this.labelServiceTime.TabIndex = 24;
@@ -310,17 +302,34 @@ namespace CSharp_LB3
             // labelCountBerths
             // 
             this.labelCountBerths.AutoSize = true;
-            this.labelCountBerths.Location = new System.Drawing.Point(104, 223);
+            this.labelCountBerths.Location = new System.Drawing.Point(107, 263);
             this.labelCountBerths.Name = "labelCountBerths";
             this.labelCountBerths.Size = new System.Drawing.Size(80, 13);
             this.labelCountBerths.TabIndex = 25;
             this.labelCountBerths.Text = "К-сть причалів";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1107, 24);
+            this.menuStrip1.TabIndex = 26;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.exitToolStripMenuItem.Text = "Вихід";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 371);
+            this.ClientSize = new System.Drawing.Size(1107, 442);
             this.Controls.Add(this.labelCountBerths);
             this.Controls.Add(this.labelServiceTime);
             this.Controls.Add(this.labelMaintenanceCost);
@@ -328,7 +337,6 @@ namespace CSharp_LB3
             this.Controls.Add(this.labelCountEmployees);
             this.Controls.Add(this.labelAdress);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.buttonTest);
             this.Controls.Add(this.buttonComparison);
             this.Controls.Add(this.groupBoxMode);
             this.Controls.Add(this.dataGridView1);
@@ -341,6 +349,8 @@ namespace CSharp_LB3
             this.Controls.Add(this.textBoxCountEmployees);
             this.Controls.Add(this.textBoxAdress);
             this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Морський порт";
@@ -348,6 +358,8 @@ namespace CSharp_LB3
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxMode.ResumeLayout(false);
             this.groupBoxMode.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,7 +385,6 @@ namespace CSharp_LB3
         private System.Windows.Forms.RadioButton radioButtonCopy;
         private System.Windows.Forms.RadioButton radioButtonFiring;
         private System.Windows.Forms.RadioButton radioButtonHiring;
-        private System.Windows.Forms.Button buttonTest;
         private System.Windows.Forms.RadioButton radioButtonRemoveVechicle;
         private System.Windows.Forms.RadioButton radioButtonAddVechicle;
         private System.Windows.Forms.Label labelName;
@@ -383,6 +394,8 @@ namespace CSharp_LB3
         private System.Windows.Forms.Label labelMaintenanceCost;
         private System.Windows.Forms.Label labelServiceTime;
         private System.Windows.Forms.Label labelCountBerths;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 

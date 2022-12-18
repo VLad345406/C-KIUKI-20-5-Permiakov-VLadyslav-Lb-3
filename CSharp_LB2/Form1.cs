@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,162 @@ namespace CSharp_LB3
         private void Form1_Load(object sender, EventArgs e)
         {
             clearForm();
+            if (!Directory.Exists("HarborData"))
+                Directory.CreateDirectory("HarborData");
+            else
+            {
+                var directories = Directory.GetDirectories("HarborData");
+                for (int i = 0; i < directories.Length; i++)
+                {
+                    Ports loadPort = new Ports();
+                    
+                    //читання main.txt
+                    StreamReader mainReader = new StreamReader(directories[i] + "\\main.txt");
+                    int mainCount = 0;
+                    while (!mainReader.EndOfStream)
+                    {
+                        switch (mainCount)
+                        {
+                            case 0:
+                                loadPort.Name = mainReader.ReadLine();
+                                mainCount++;
+                                break;
+                            case 1:
+                                loadPort.Adress = mainReader.ReadLine();
+                                mainCount++;
+                                break;
+                            case 2:
+                                int count;
+                                Int32.TryParse(mainReader.ReadLine(), out count);
+                                loadPort.CountEmployees = count;
+                                mainCount++;
+                                break;
+                            case 3:
+                                Int32.TryParse(mainReader.ReadLine(), out count);
+                                loadPort.CountVehicles = count;
+                                mainCount++;
+                                break;
+                            case 4:
+                                Int32.TryParse(mainReader.ReadLine(), out count);
+                                loadPort.MaintenanceCost = count;
+                                mainCount++;
+                                break;
+                            case 5:
+                                Int32.TryParse(mainReader.ReadLine(), out count);
+                                loadPort.CountBerths = count;
+                                mainCount++;
+                                break;
+                            case 6:
+                                Int32.TryParse(mainReader.ReadLine(), out count);
+                                loadPort.ServiceTime = count;
+                                mainCount++;
+                                break;
+                            case 7:
+                                Int32.TryParse(mainReader.ReadLine(), out count);
+                                loadPort.ServiceProfit = count;
+                                mainCount++;
+                                break;
+                        }
+                    }
+                    mainReader.Close();
+                    loadPort.SetIndex = i;
+
+                    //читання Workers.txt
+                    Dictionary<string, Worker> loadWorkers = new Dictionary<string, Worker>();
+                    StreamReader workersReader = new StreamReader(directories[i] + "\\Workers.txt");
+                    int workersCount = 0;
+                    Worker workerRead = new Worker();
+                    while (!workersReader.EndOfStream)
+                    {
+                        switch (workersCount)
+                        {
+                            case 0:
+                                workerRead.individualNumber = workersReader.ReadLine();
+                                workersCount++;
+                                break;
+                            case 1:
+                                workerRead.surname = workersReader.ReadLine();
+                                workersCount++;
+                                break;
+                            case 2:
+                                workerRead.name = workersReader.ReadLine();
+                                workersCount++;
+                                break;
+                            case 3:
+                                workerRead.patronymic = workersReader.ReadLine();
+                                workersCount++;
+                                break;
+                            case 4:
+                                int count;
+                                Int32.TryParse(workersReader.ReadLine(), out count);
+                                workerRead.salary = count;
+                                workersCount++;
+                                break;
+                            case 5:
+                                Int32.TryParse(workersReader.ReadLine(), out count);
+                                workerRead.workerNumberBerths = count;
+                                workersCount++;
+                                break;
+                            case 6:
+                                workersCount = 0;
+                                workersReader.ReadLine();
+                                loadWorkers.Add(workerRead.individualNumber, workerRead);
+                                workerRead = new Worker();
+                                break;
+                        }
+                    }
+                    workersReader.Close();
+                    loadPort.GetSetWorkers = loadWorkers;
+
+
+                    //читання Machines.txt
+                    int machinesCount = 0;
+                    List<Machine> loadMachines = new List<Machine>();
+                    Machine currentMachine = new Machine();
+                    StreamReader machinesReader = new StreamReader(directories[i] + "\\Machines.txt");
+                    int machicnesCount = 0;
+                    while (!machinesReader.EndOfStream)
+                    {
+                        switch (machinesCount)
+                        {
+                            case 0:
+                                int count;
+                                Int32.TryParse(machinesReader.ReadLine(), out count);
+                                currentMachine.cost = count;
+                                machinesCount++;
+                                break;
+                            case 1:
+                                Int32.TryParse(machinesReader.ReadLine(), out count);
+                                currentMachine.countWorkers = count;
+                                machinesCount++;
+                                break;
+                            case 2:
+                                Int32.TryParse(machinesReader.ReadLine(), out count);
+                                currentMachine.uniqueNumber = count;
+                                machinesCount++;
+                                break;
+                            case 3:
+                                if (machinesReader.ReadLine() == "True")
+                                    currentMachine.isWorking = true;
+                                else
+                                    currentMachine.isWorking = false;
+                                machinesCount++;
+                                break;
+                            case 4:
+                                machinesReader.ReadLine();
+                                loadMachines.Add(currentMachine);
+                                currentMachine = new Machine();
+                                machinesCount = 0;
+                                break;
+                        }
+                    }
+                    machinesReader.Close();
+                    loadPort.listMachines = loadMachines;
+                    comboBoxPorts.Items.Add(loadPort.Name);
+                    arr.Add(loadPort);
+                    loadPort = new Ports();
+                }
+            }
         }
 
         private void buttonAddPort_Click(object sender, EventArgs e)
@@ -147,11 +304,50 @@ namespace CSharp_LB3
                 MessageBox.Show("Не можна запустити порівняння, доки записаних портів менше 2х!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void buttonTest_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            initializeFormRemoveVechicles(1);
-            //initializeFormAddVechicles(1, 1, "Add");
-            //initializeFormHiring(1, 1, "Add");
+            DialogResult MSExit = MessageBox.Show("Ви точно бажаєте вийти?", "Message!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (MSExit == DialogResult.Yes)
+            {
+                for (int i = 0; i < arr.Count(); i++)
+                {
+                    Directory.CreateDirectory("HarborData\\" + arr.ElementAt(i).Name);
+                    //main.txt
+                    string mainSave = arr.ElementAt(i).Name + '\n'
+                    + arr.ElementAt(i).Adress + '\n'
+                    + arr.ElementAt(i).CountEmployees + '\n'
+                    + arr.ElementAt(i).CountVehicles + '\n'
+                    + arr.ElementAt(i).MaintenanceCost + '\n'
+                    + arr.ElementAt(i).CountBerths + '\n'
+                    + arr.ElementAt(i).ServiceTime + '\n'
+                    + arr.ElementAt(i).ServiceProfit;
+                    File.WriteAllText("HarborData\\" + arr.ElementAt(i).Name + "\\main.txt", mainSave);
+                    //Workers.txt
+                    Dictionary<string, Worker> currentWorkers = arr.ElementAt(i).GetSetWorkers;
+                    string workersSave = ""; //currentWorkers.Count().ToString() + "\n\n";
+                    for (int j = 0; j < currentWorkers.Count(); j++)
+                    {
+                        workersSave += currentWorkers.ElementAt(j).Key + "\n"
+                        + currentWorkers.ElementAt(j).Value.surname + "\n"
+                        + currentWorkers.ElementAt(j).Value.name + "\n"
+                        + currentWorkers.ElementAt(j).Value.patronymic + "\n"
+                        + currentWorkers.ElementAt(j).Value.salary + "\n"
+                        + currentWorkers.ElementAt(j).Value.workerNumberBerths + "\n\n";
+                    }
+                    File.WriteAllText("HarborData\\" + arr.ElementAt(i).Name + "\\Workers.txt", workersSave);
+                    //Machines.txt
+                    string machinesSave = ""; //arr.ElementAt(i).listMachines.Count().ToString() + "\n\n";
+                    for (int j = 0; j < arr.ElementAt(i).listMachines.Count(); j++)
+                    {
+                        machinesSave += arr.ElementAt(i).listMachines[j].cost + "\n"
+                        + arr.ElementAt(i).listMachines[j].countWorkers + "\n"
+                        + arr.ElementAt(i).listMachines[j].uniqueNumber + "\n"
+                        + arr.ElementAt(i).listMachines[j].isWorking + "\n\n";
+                    }
+                    File.WriteAllText("HarborData\\" + arr.ElementAt(i).Name + "\\Machines.txt", machinesSave);
+                }
+                Application.Exit();
+            }
         }
     }
 }
